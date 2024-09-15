@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}"> Home </a></li>
+            <li><a href="{% url 'about' %}"> About </a></li>
+            <li><a href="{% url 'contact' %}"> Contact </a></li>
+        </ul>
+    </nav>
+    <h1>My Result Page......</h1>
+    <hr>
+    <section>
+        <div>
+            <ul>
+                {% if result %}
+                <li>
+                    <p>Task ID: {{result.id}}</p>
+                </li>
+                <li>
+                    <p>Task State: {{result.state}}</p>
+                </li>
+                <li>
+                    <p>Task Status: {{result.status}}</p>
+                </li>
+                <li>
+                    <p>Task Value: {{result.result}}</p>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
