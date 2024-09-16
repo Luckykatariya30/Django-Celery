@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'django_celery_results',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,28 @@ CELERY_BROKER_URL ="redis://127.0.0.1:6379/0"
 CELERY_RESULT_BACKEND = 'django-db'
 
 
+CELERY_CACHE_BACKEND = 'django-cache'
+
+CELERY_CACHE_BACKEND = 'default'
+
 # Enables extended task result attributes (name,args, kwargs,worker,retries,queue,delivery_info) to be write to backend
 
 CELERY_RESULT_EXTENDED = True
+
+# METHOD 1
+
+# CELERY_BEAT_SCHEDULE = {
+#     'every-10-seconde':{
+#         'task':'myapp.tasks.reminder',
+#         'schedule':10.0,
+#         'args':('23',)
+       
+#     },
+#     # Add more periodic tasks as needed
+# }
+
+
+# custom scheduler classes
+
+CELERY_BEAT_SCHEDULER='django_celery_beat.schedulers:DatabaseScheduler'
+
