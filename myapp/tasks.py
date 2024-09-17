@@ -18,16 +18,16 @@ def reminder(id):
 
 # Create Schedule every 5 seconds
 
-schedule,created = IntervalSchedule.object.get_or_create(
+schedule,created = IntervalSchedule.objects.get_or_create(
     every=5,
     period = IntervalSchedule.SECONDS,
 )
 # Schedule the periodic task programmaticlly
 
-PeriodicTask.object.get_or_create(
-    name='Clear RabbitMQ Periodic Task',
+PeriodicTask.objects.get_or_create(
+    name='some value reminder',
     task='myapp.tasks.reminder',
     interval=schedule,
-    args=json.dumps(['hello']),
+    args=json.dumps(['lucky']),
 )
 

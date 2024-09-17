@@ -31,13 +31,13 @@ def add(x,y):
 
 ## seconde method
 
-app.conf.beat_schedule = {
-    'every_one_mintes':{
-        'task':'myapp.tasks.sub',
-        'schedule':10,
-        'args':(22,12),
-    }
-}
+# app.conf.beat_schedule = {
+#     'every_one_mintes':{
+#         'task':'myapp.tasks.sub',
+#         'schedule':10,
+#         'args':(22,12),
+#     }
+# }
 
 # Used to timedelta 
 

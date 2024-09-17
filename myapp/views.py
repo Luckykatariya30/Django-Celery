@@ -5,32 +5,32 @@ from celery.result import AsyncResult
 
 
 # Enqueue Task using delay()
-def home(request):
-    # DELAY()..........!
+# def home(request):
+#     # DELAY()..........!
     
-    # print("Results: add of x + y ")
-    # result1 = add.delay(10, 20)
-    # print('Results: ',result1)
+#     # print("Results: add of x + y ")
+#     # result1 = add.delay(10, 20)
+#     # print('Results: ',result1)
     
-    # print("Results: sub. of x + y ")
-    # result2  = sub.delay(20,10)
-    # print('Results: ',result2)
+#     # print("Results: sub. of x + y ")
+#     # result2  = sub.delay(20,10)
+#     # print('Results: ',result2)
     
-    # APPLY_ASYNC()..............!
+#     # APPLY_ASYNC()..............!
     
-    print('Result: add of two values ')
-    result1 = add.apply_async(args=[20,10])
-    print('Results: ', result1)
+#     print('Result: add of two values ')
+#     result1 = add.apply_async(args=[20,10])
+#     print('Results: ', result1)
     
-    print('Result: sub. of two values ')
-    result2 = sub.apply_async(args=[32,10])
-    print('Results: ', result2)
+#     print('Result: sub. of two values ')
+#     result2 = sub.apply_async(args=[32,10])
+#     print('Results: ', result2)
     
-    return render(request ,'myapp/home.html')
+#     return render(request ,'myapp/home.html')
 
 # Display addition value after task execution.
 def home(request):
-    result = add.delay(20,12)
+    result = add(20,12)
     return render(request ,'myapp/home.html',{'result':result})
 
 # SHOW RESULTS ......!
